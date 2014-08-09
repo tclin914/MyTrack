@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:text="         " />
+    <TableLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:stretchColumns="0,1" >
+
+         <TableRow>       
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/time" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/distance" />
+             
+         </TableRow>
+
+         <TableRow>
+            <TextView
+                android:id="@+id/idTime2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textSize="32sp" />
+            <TextView
+                android:id="@+id/idDistance2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp" />
+            
+             
+         </TableRow>
+          <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="" />
+
+         <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/calories" />  
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/average_velocity" />                   
+         </TableRow>
+
+         <TableRow>
+             <TextView
+                android:id="@+id/idVelocity2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp"/>
+             <TextView
+                android:id="@+id/idAverageVelocity2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp" />            
+                 
+         </TableRow>
+     </TableLayout>
+        
+   
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="     " />
+
+    <include
+        android:id="@+id/mediaplayer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        layout="@layout/mediaplayer" />
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="         " />
+    
+
+</LinearLayout>

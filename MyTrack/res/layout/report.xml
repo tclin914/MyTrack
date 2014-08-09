@@ -1,0 +1,40 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyProject" >
+    
+    <ViewFlipper
+         android:id="@+id/ViewFlipper04"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+        
+         <include
+             android:id="@+id/report1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/report1" />
+         <include
+             android:id="@+id/report2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/report2" />    
+       
+   
+     </ViewFlipper>
+     
+    
+     <Button
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:textSize="18sp"
+         android:text="Publish"
+         android:id="@+id/idPublish" />
+         
+         
+         
+         
+
+</LinearLayout>

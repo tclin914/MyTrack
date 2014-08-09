@@ -1,0 +1,65 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyProject" >
+
+     <ViewFlipper
+         android:id="@+id/ViewFlipper01"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+         <include
+             android:id="@+id/page1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/page1" />
+         <include
+             android:id="@+id/page2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/page2" />
+          <include
+             android:id="@+id/page3"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/page3" />
+       
+   
+     </ViewFlipper>
+     
+    
+
+     
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:gravity="center"
+         android:orientation="horizontal" >
+
+         <Button
+             android:id="@+id/idStart"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="@string/start"            
+             android:background="@color/white"
+             android:textSize="26sp" />
+         <TextView
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:text="   " />
+
+         <Button
+             android:id="@+id/idCancel"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:background="@color/white"
+             android:text="@string/cancel"
+             
+             android:textSize="26sp" />
+     </LinearLayout>
+     
+    
+  
+</LinearLayout>

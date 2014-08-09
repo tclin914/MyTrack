@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+     <include
+        android:id="@+id/googleMap"
+        android:layout_width="match_parent"
+        android:layout_height="210dp"
+        layout="@layout/googlemap" />
+    
+     <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="         " />
+
+     <TableLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:stretchColumns="0,1" >
+
+         <TableRow
+             android:id="@+id/tableRow1"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+       
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/time" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/distance" />
+             
+         </TableRow>
+        
+         
+
+         <TableRow
+             android:id="@+id/tableRow2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/idTime1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="00:00:00"
+                android:textSize="32sp" />
+            <TextView
+                android:id="@+id/idDistance1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp" />
+            
+             
+         </TableRow>
+         
+          <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="" />
+
+         <TableRow
+             android:id="@+id/tableRow3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/calories" />  
+             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:text="@string/average_velocity" />                   
+         </TableRow>
+
+         <TableRow
+             android:id="@+id/tableRow4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" >
+             <TextView
+                android:id="@+id/idVelocity1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp"/>
+             <TextView
+                android:id="@+id/idAverageVelocity1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textSize="32sp" />            
+                 
+         </TableRow>
+     </TableLayout>
+      <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="         " />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="         " />
+
+</LinearLayout>

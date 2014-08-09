@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MyProject" >
+    
+    <ViewFlipper
+         android:id="@+id/ViewFlipper03"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content" >
+
+        
+         <include
+             android:id="@+id/result1"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/result1" />
+         <include
+             android:id="@+id/result2"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             layout="@layout/result2" />    
+       
+   
+     </ViewFlipper>
+
+</LinearLayout>

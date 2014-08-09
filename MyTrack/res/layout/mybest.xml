@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+    <LinearLayout
+        android:id="@+id/clicklongtime"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:background="@drawable/selector" >
+           
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/red"
+            android:text="最長時間(H:M:S)" />
+        <TextView
+            android:id="@+id/longtime"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text=" " />
+        <TextView
+            android:id="@+id/longtime_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+             android:textSize="18sp"
+            android:text=" " />
+
+   </LinearLayout>
+   
+    <LinearLayout
+        android:id="@+id/clicklongdistance"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:background="@drawable/selector" >
+         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/red"
+            android:text="最長距離(km)" />
+         <TextView
+            android:id="@+id/longdistance"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text=" " />
+         <TextView
+            android:id="@+id/longdistance_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text=" " />
+    </LinearLayout>
+    
+    <LinearLayout
+        android:id="@+id/clicklongaltitude"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:clickable="true"
+        android:background="@drawable/selector" >
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="@color/red"
+            android:text="最高海拔(m)" />
+        <TextView
+            android:id="@+id/longaltitude"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text=" " />
+        <TextView
+            android:id="@+id/longaltitude_date"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text=" " />   
+    </LinearLayout>
+    
+    
+   
+    
+    
+
+</LinearLayout>
