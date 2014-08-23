@@ -78,7 +78,7 @@ public class Report extends Activity implements OnGestureListener{
                     , tvMinAltitude
                     , tvMaxAltitude ;                    
 //    private View Altitudechart,Velocitychart;
-    private GestureDetector detector;//Ä²ºNºÊÅ¥
+    private GestureDetector detector;//è§¸æ‘¸ç›£è½
     private ViewFlipper flipper;//ViewFlipper   
     private List<LatLng> latlnglist=null;   
     private String[] columns = {_ID, DATE, CALORIES, TIME, DISTANCE, AVERAGE_VELOCITY,
@@ -101,12 +101,12 @@ public class Report extends Activity implements OnGestureListener{
 		setResourse();	
 		setSimpleFacebook();
 		
-		btPublish.setText("¤W¶Ç§Úªº¹B°Ê¬ö¿ı¨ìFaceBook");
+		btPublish.setText("ä¸Šå‚³æˆ‘çš„é‹å‹•ç´€éŒ„åˆ°FaceBook");
 
-		//·Æ°Ê		
-		detector = new GestureDetector(this);//°_©l¤ÆÄ²ºN
-		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper04);//¨ú±oViewFlipper
-						                                                //±NView¼W¥[¨ìflipper°}¦C¤¤   	
+		//æ»‘å‹•		
+		detector = new GestureDetector(this);//èµ·å§‹åŒ–è§¸æ‘¸
+		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper04);//å–å¾—ViewFlipper
+						                                                //å°‡Viewå¢åŠ åˆ°flipperé™£åˆ—ä¸­   	
 		
 		Bundle bundle=this.getIntent().getExtras();
 		String id=bundle.getString("id");
@@ -132,7 +132,7 @@ public class Report extends Activity implements OnGestureListener{
         Cursor c=db.query(TABLE_NAME, columns, null, null, null, null, null);
 		c.moveToPosition(Integer.valueOf(id)-1);       
         
-		//­pºâ¥­§¡³t«×
+		//è¨ˆç®—å¹³å‡é€Ÿåº¦
 		intCnt=Double.valueOf(c.getString(10));
 		Log.e("intCnt", ""+intCnt);
 		distance=Double.valueOf(c.getString(4));
@@ -232,7 +232,7 @@ public class Report extends Activity implements OnGestureListener{
 //			publishFeedDialog();
 			
 			mSimpleFacebook.login(onLoginListener);
-			Toast.makeText(Report.this, "¦¨¥\µn¤J§ÚªºFacebook", Toast.LENGTH_SHORT).show();
+			Toast.makeText(Report.this, "æˆåŠŸç™»å…¥æˆ‘çš„Facebook", Toast.LENGTH_SHORT).show();
 			
 			openInputDialog();
 			
@@ -242,7 +242,7 @@ public class Report extends Activity implements OnGestureListener{
 	};
 	
 	private void uploadmyrecord(){
-		//¤W¶Ç¹B°Ê¬ö¿ı
+		//ä¸Šå‚³é‹å‹•ç´€éŒ„
 		layout.setDrawingCacheEnabled(true);
 		layout.buildDrawingCache();
 		Bitmap bmp=layout.getDrawingCache();
@@ -253,13 +253,13 @@ public class Report extends Activity implements OnGestureListener{
 			photo.addDescription(messege);
 			photo.addPlace("110619208966868");				
 			mSimpleFacebook.publish(photo, onPublishListener);
-			Toast.makeText(Report.this, "¦¨¥\¤W¶Ç§Úªº¹B°Ê¬ö¿ı", Toast.LENGTH_SHORT).show();
+			Toast.makeText(Report.this, "æˆåŠŸä¸Šå‚³æˆ‘çš„é‹å‹•ç´€éŒ„", Toast.LENGTH_SHORT).show();
 		
 		
 	}
 	
 	private void uploadmytrack(){
-		//¤W¶Ç¹B°Ê­y¸ñ		
+		//ä¸Šå‚³é‹å‹•è»Œè·¡		
 	
         SnapshotReadyCallback callback=new  SnapshotReadyCallback(){
 //        	Bitmap bitmap;
@@ -270,7 +270,7 @@ public class Report extends Activity implements OnGestureListener{
 				photoMap.addDescription(messege);
 				photoMap.addPlace("110619208966868");			
 				mSimpleFacebook.publish(photoMap, onPublishListener);
-				Toast.makeText(Report.this, "¦¨¥\¤W¶Ç§Úªº¹B°Ê­y¸ñ", Toast.LENGTH_SHORT).show();
+				Toast.makeText(Report.this, "æˆåŠŸä¸Šå‚³æˆ‘çš„é‹å‹•è»Œè·¡", Toast.LENGTH_SHORT).show();
 			}
 				
 			};
@@ -281,9 +281,9 @@ public class Report extends Activity implements OnGestureListener{
 		LayoutInflater inflater=LayoutInflater.from(Report.this);
 		final View v=inflater.inflate(R.layout.alertdialog_edittext, null);
 		new AlertDialog.Builder(Report.this)
-		.setTitle("§Aªº¹B°Ê¤ß±o©Î´y­z")
+		.setTitle("ä½ çš„é‹å‹•å¿ƒå¾—æˆ–æè¿°")
 		.setView(v)
-		.setPositiveButton("½T©w", new DialogInterface.OnClickListener() {
+		.setPositiveButton("ç¢ºå®š", new DialogInterface.OnClickListener() {
 			
 			EditText edittext=(EditText)v.findViewById(R.id.idedittext);
 			
@@ -335,7 +335,7 @@ public class Report extends Activity implements OnGestureListener{
 	} 
 	
 	private void setMap(){
-		//¦a¹Ï°ò¥»³]©w
+		//åœ°åœ–åŸºæœ¬è¨­å®š
 		map=((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
 		map.getUiSettings().setCompassEnabled(true);
@@ -383,7 +383,7 @@ public class Report extends Activity implements OnGestureListener{
 		db.close();				
 	}
 
-    //­y¸ñ¹ÏÃ¸»s
+    //è»Œè·¡åœ–ç¹ªè£½
 	private void drawPolyline(List<LatLng> latlnglist){
 	    PolylineOptions polylineOpt = new PolylineOptions();
 	    
@@ -396,7 +396,7 @@ public class Report extends Activity implements OnGestureListener{
 		polyline.setWidth(10);
 		
 		
-		//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+		//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 		CameraPosition cameraPosition=new CameraPosition.Builder()
 		.target(latlnglist.get(0))
 		.zoom(15)
@@ -518,10 +518,10 @@ public class Report extends Activity implements OnGestureListener{
 //		
 //		
 //		
-//		String[] titles = new String[] { "®ü©Ş" }; // ©w¸q§é½uªº¦WºÙ
-//	    List<double[]> x = new ArrayList<double[]>(); // ÂIªºx§¤¼Ğ
-//	    List<double[]> y = new ArrayList<double[]>(); // ÂIªºy§¤¼Ğ
-//	        // ¼Æ­ÈX,Y§¤¼Ğ­È¿é¤J
+//		String[] titles = new String[] { "æµ·æ‹”" }; // å®šç¾©æŠ˜ç·šçš„åç¨±
+//	    List<double[]> x = new ArrayList<double[]>(); // é»çš„xåæ¨™
+//	    List<double[]> y = new ArrayList<double[]>(); // é»çš„yåæ¨™
+//	        // æ•¸å€¼X,Yåæ¨™å€¼è¼¸å…¥
 //	    double[] AltitudetoArray=new double[alt.doublelist.size()];
 //	    for(int i=0;i<alt.doublelist.size();i++){
 //	    	AltitudetoArray[i]=Double.valueOf(String.valueOf(alt.doublelist.get(i)));
@@ -543,13 +543,13 @@ public class Report extends Activity implements OnGestureListener{
 ////	        x.add(new double[]{1,3,5,7,9});
 ////	        y.add(new double[]{2,4,6,8,10});
 //	        
-//	        XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // Àx¦s®y¼Ğ­È
+//	        XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // å„²å­˜åº§æ¨™å€¼
 //
-//	        int[] colors = new int[] { Color.BLUE};// §é½uªºÃC¦â
-//	        PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // §é½uÂIªº§Îª¬
+//	        int[] colors = new int[] { Color.BLUE};// æŠ˜ç·šçš„é¡è‰²
+//	        PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // æŠ˜ç·šé»çš„å½¢ç‹€
 //	        XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles, true);
 //
-//	        setChartSettings(renderer, "®ü©Ş§é½u¹Ï", "®É¶¡(s)", "®ü©Ş(m)", 0, 60, 0, 100, Color.BLACK);// ©w¸q§é½u¹Ï
+//	        setChartSettings(renderer, "æµ·æ‹”æŠ˜ç·šåœ–", "æ™‚é–“(s)", "æµ·æ‹”(m)", 0, 60, 0, 100, Color.BLACK);// å®šç¾©æŠ˜ç·šåœ–
 //	        Altitudechart = ChartFactory.getLineChartView(this, dataset, renderer);
 //	        int height=getWindowManager().getDefaultDisplay().getHeight();
 //	        LayoutParams parms = new LayoutParams(LayoutParams.MATCH_PARENT, height-300);
@@ -558,10 +558,10 @@ public class Report extends Activity implements OnGestureListener{
 //   }
 	
 //	private void showVelocity(){
-//        String[] titles = new String[] { "³t«×" }; // ©w¸q§é½uªº¦WºÙ
-//	    List<double[]> x = new ArrayList<double[]>(); // ÂIªºx§¤¼Ğ
-//	    List<double[]> y = new ArrayList<double[]>(); // ÂIªºy§¤¼Ğ
-//	    // ¼Æ­ÈX,Y§¤¼Ğ­È¿é¤J
+//        String[] titles = new String[] { "é€Ÿåº¦" }; // å®šç¾©æŠ˜ç·šçš„åç¨±
+//	    List<double[]> x = new ArrayList<double[]>(); // é»çš„xåæ¨™
+//	    List<double[]> y = new ArrayList<double[]>(); // é»çš„yåæ¨™
+//	    // æ•¸å€¼X,Yåæ¨™å€¼è¼¸å…¥
 //	        
 ////	    double[] VelocitytoArray  = ArrayUtils.toPrimitive(VelocityList.toArray(new Double[VelocityList.size()]));
 //	        
@@ -579,13 +579,13 @@ public class Report extends Activity implements OnGestureListener{
 //        y.add(new double[]{2,4,6,8,10});
 //
 //	        
-//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // Àx¦s®y¼Ğ­È
+//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // å„²å­˜åº§æ¨™å€¼
 //
-//	    int[] colors = new int[] { Color.GREEN};// §é½uªºÃC¦â
-//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // §é½uÂIªº§Îª¬
+//	    int[] colors = new int[] { Color.GREEN};// æŠ˜ç·šçš„é¡è‰²
+//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // æŠ˜ç·šé»çš„å½¢ç‹€
 //	    XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles, true);
 //
-//	    setChartSettings(renderer, "³t«×§é½u¹Ï", "®É¶¡(s)", "³t«×(km/h)", 0, 60, 0, 100, Color.BLACK);// ©w¸q§é½u¹Ï
+//	    setChartSettings(renderer, "é€Ÿåº¦æŠ˜ç·šåœ–", "æ™‚é–“(s)", "é€Ÿåº¦(km/h)", 0, 60, 0, 100, Color.BLACK);// å®šç¾©æŠ˜ç·šåœ–
 //	    Velocitychart = ChartFactory.getLineChartView(this, dataset, renderer);
 //	    int height=getWindowManager().getDefaultDisplay().getHeight();
 //	    LayoutParams parms = new LayoutParams(LayoutParams.MATCH_PARENT, height-300);
@@ -593,23 +593,23 @@ public class Report extends Activity implements OnGestureListener{
 //
 //    }    
 
-//	// ©w¸q§é½u¹Ï¦WºÙ
+//	// å®šç¾©æŠ˜ç·šåœ–åç¨±
 //   protected void setChartSettings(XYMultipleSeriesRenderer renderer, String title, String xTitle,
 //           String yTitle, double xMin, double xMax, double yMin, double yMax, int axesColor) {
-//       renderer.setChartTitle(title); // §é½u¹Ï¦WºÙ
-//       renderer.setChartTitleTextSize(24); // §é½u¹Ï¦WºÙ¦r§Î¤j¤p
-//       renderer.setXTitle(xTitle); // X¶b¦WºÙ
-//       renderer.setYTitle(yTitle); // Y¶b¦WºÙ
-//       renderer.setXAxisMin(xMin); // X¶bÅã¥Ü³Ì¤p­È
-//       renderer.setXAxisMax(xMax); // X¶bÅã¥Ü³Ì¤j­È
-//       renderer.setXLabelsColor(Color.BLACK); // X¶b½uÃC¦â
-//       renderer.setYAxisMin(yMin); // Y¶bÅã¥Ü³Ì¤p­È
-//       renderer.setYAxisMax(yMax); // Y¶bÅã¥Ü³Ì¤j­È
-//       renderer.setAxesColor(axesColor); // ³]©w§¤¼Ğ¶bÃC¦â
-//       renderer.setYLabelsColor(0, Color.BLACK); // Y¶b½uÃC¦â
-//       renderer.setLabelsColor(Color.BLACK); // ³]©w¼ĞÅÒÃC¦â
-//       renderer.setMarginsColor(Color.WHITE); // ³]©w­I´ºÃC¦â
-//       renderer.setShowGrid(true); // ³]©w®æ½u       
+//       renderer.setChartTitle(title); // æŠ˜ç·šåœ–åç¨±
+//       renderer.setChartTitleTextSize(24); // æŠ˜ç·šåœ–åç¨±å­—å½¢å¤§å°
+//       renderer.setXTitle(xTitle); // Xè»¸åç¨±
+//       renderer.setYTitle(yTitle); // Yè»¸åç¨±
+//       renderer.setXAxisMin(xMin); // Xè»¸é¡¯ç¤ºæœ€å°å€¼
+//       renderer.setXAxisMax(xMax); // Xè»¸é¡¯ç¤ºæœ€å¤§å€¼
+//       renderer.setXLabelsColor(Color.BLACK); // Xè»¸ç·šé¡è‰²
+//       renderer.setYAxisMin(yMin); // Yè»¸é¡¯ç¤ºæœ€å°å€¼
+//       renderer.setYAxisMax(yMax); // Yè»¸é¡¯ç¤ºæœ€å¤§å€¼
+//       renderer.setAxesColor(axesColor); // è¨­å®šåæ¨™è»¸é¡è‰²
+//       renderer.setYLabelsColor(0, Color.BLACK); // Yè»¸ç·šé¡è‰²
+//       renderer.setLabelsColor(Color.BLACK); // è¨­å®šæ¨™ç±¤é¡è‰²
+//       renderer.setMarginsColor(Color.WHITE); // è¨­å®šèƒŒæ™¯é¡è‰²
+//       renderer.setShowGrid(true); // è¨­å®šæ ¼ç·š       
 //       renderer.setInScroll(false);
 //       renderer.setClickEnabled(false);
 //       renderer.setExternalZoomEnabled(false);
@@ -619,7 +619,7 @@ public class Report extends Activity implements OnGestureListener{
 //               
 //   }
 //
-//   // ©w¸q§é½u¹Ïªº®æ¦¡
+//   // å®šç¾©æŠ˜ç·šåœ–çš„æ ¼å¼
 //   private XYMultipleSeriesRenderer buildRenderer(int[] colors, PointStyle[] styles, boolean fill) {
 //       XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
 //       int length = colors.length;
@@ -630,27 +630,27 @@ public class Report extends Activity implements OnGestureListener{
 //           r.setFillPoints(fill);
 //           r.setLineWidth(3);
 //           r.setPointStrokeWidth(30);             
-//           renderer.addSeriesRenderer(r); //±N®y¼ĞÅÜ¦¨½u¥[¤J¹Ï¤¤Åã¥Ü
+//           renderer.addSeriesRenderer(r); //å°‡åº§æ¨™è®Šæˆç·šåŠ å…¥åœ–ä¸­é¡¯ç¤º
 //       }
 //       return renderer;
 //   }
 //   
 //
 //
-//   // ¸ê®Æ³B²z
+//   // è³‡æ–™è™•ç†
 //   private XYMultipleSeriesDataset buildDatset(String[] titles, List<double[]> xValues,
 //           List<double[]> yValues) {
 //       XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
 //
-//       int length = titles.length; // §é½u¼Æ¶q
+//       int length = titles.length; // æŠ˜ç·šæ•¸é‡
 //       for (int i = 0; i < length; i++) {
-//           // XYseries¹ï¶H,¥Î©ó´£¨ÑÃ¸»sªºÂI¶°¦Xªº¸ê®Æ
-//           XYSeries series = new XYSeries(titles[i]); // ¨Ì¾Ú¨C±ø½uªº¦WºÙ·s¼W
-//           double[] xV = xValues.get(i); // Àò¨ú²Äi±ø½uªº¸ê®Æ
+//           // XYserieså°è±¡,ç”¨æ–¼æä¾›ç¹ªè£½çš„é»é›†åˆçš„è³‡æ–™
+//           XYSeries series = new XYSeries(titles[i]); // ä¾æ“šæ¯æ¢ç·šçš„åç¨±æ–°å¢
+//           double[] xV = xValues.get(i); // ç²å–ç¬¬iæ¢ç·šçš„è³‡æ–™
 //           double[] yV = yValues.get(i);
-//           int seriesLength = xV.length; // ¦³´X­ÓÂI
+//           int seriesLength = xV.length; // æœ‰å¹¾å€‹é»
 //
-//           for (int k = 0; k < seriesLength; k++) // ¨C±ø½u¸Ì¦³´X­ÓÂI
+//           for (int k = 0; k < seriesLength; k++) // æ¯æ¢ç·šè£¡æœ‰å¹¾å€‹é»
 //           {
 //               series.add(xV[k], yV[k]);
 //           }
@@ -659,13 +659,13 @@ public class Report extends Activity implements OnGestureListener{
 //       return dataset;
 //   }
 		
-	//Meun³]©w
+	//Meunè¨­å®š
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "­º­¶");
-		menu.add(0, 1, 1, "¬ö¿ı");
-		menu.add(0, 2, 2, "³]©w");
-		menu.add(0, 3, 3, "µn¥X");		
+		menu.add(0, 0, 0, "é¦–é ");
+		menu.add(0, 1, 1, "ç´€éŒ„");
+		menu.add(0, 2, 2, "è¨­å®š");
+		menu.add(0, 3, 3, "ç™»å‡º");		
 		
 		return super.onCreateOptionsMenu(menu);
 	}
@@ -689,7 +689,7 @@ public class Report extends Activity implements OnGestureListener{
 		return super.onOptionsItemSelected(item); 
 	}
 	
-    //·Æ°Ê®ÄªG
+    //æ»‘å‹•æ•ˆæœ
 	@Override  
     public boolean onTouchEvent(MotionEvent event) {   
         return this.detector.onTouchEvent(event);   
@@ -704,29 +704,29 @@ public class Report extends Activity implements OnGestureListener{
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
 			float velocityY) {
-		if (e1.getX() - e2.getX() > 120) {//¦pªG¬O±q¥k¦V¥ª·Æ°Ê   
-            //µù¥Uflipperªº¶i¥X®ÄªG 
+		if (e1.getX() - e2.getX() > 120) {//å¦‚æœæ˜¯å¾å³å‘å·¦æ»‘å‹•   
+            //è¨»å†Šflipperçš„é€²å‡ºæ•ˆæœ 
             this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.left_in));
             this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.left_out));
             this.flipper.showNext();  
             
             switch(flipper.indexOfChild(flipper.getCurrentView())){
-    		case 0:btPublish.setText("¤W¶Ç§Úªº¹B°Ê¬ö¿ı¨ìFaceBook");
+    		case 0:btPublish.setText("ä¸Šå‚³æˆ‘çš„é‹å‹•ç´€éŒ„åˆ°FaceBook");
     		    break;
-    		case 1:btPublish.setText("¤W¶Ç§Úªº¹B°Ê­y¸ñ¨ìFaceBook");
+    		case 1:btPublish.setText("ä¸Šå‚³æˆ‘çš„é‹å‹•è»Œè·¡åˆ°FaceBook");
     		    break;		
     		}
             return true;  
-        } else if (e1.getX() - e2.getX() < -120) {//¦pªG¬O±q¥ª¦V¥k·Æ°Ê 
+        } else if (e1.getX() - e2.getX() < -120) {//å¦‚æœæ˜¯å¾å·¦å‘å³æ»‘å‹• 
             this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.right_in)); 
             this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.right_out));
             this.flipper.showPrevious();
             Log.e("flipper ID", ""+  flipper.indexOfChild(flipper.getCurrentView()));
             
             switch(flipper.indexOfChild(flipper.getCurrentView())){
-    		case 0:btPublish.setText("¤W¶Ç§Úªº¹B°Ê¬ö¿ı¨ìFaceBook");
+    		case 0:btPublish.setText("ä¸Šå‚³æˆ‘çš„é‹å‹•ç´€éŒ„åˆ°FaceBook");
     		    break;
-    		case 1:btPublish.setText("¤W¶Ç§Úªº¹B°Ê­y¸ñ¨ìFaceBook");
+    		case 1:btPublish.setText("ä¸Šå‚³æˆ‘çš„é‹å‹•è»Œè·¡åˆ°FaceBook");
     		    break;		
     		}
             return true; 

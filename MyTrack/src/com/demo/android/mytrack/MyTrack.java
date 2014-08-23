@@ -57,7 +57,7 @@ public class MyTrack extends Activity{
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
 		
-		//SimpleFacebookªì©l³]©w
+		//SimpleFacebookåˆå§‹è¨­å®š
 		Logger.DEBUG_WITH_STACKTRACE = true;				
 		Permissions[] permissions = new Permissions[]{
 				Permissions.BASIC_INFO,
@@ -80,19 +80,19 @@ public class MyTrack extends Activity{
 		
 		findView();
 		
-		//³]©wºÊÅ¥¾¹
+		//è¨­å®šç›£è½å™¨
 		setListeners();  
 		
-		//¤W¦¸¹B°Ê¬ö¿ı
+		//ä¸Šæ¬¡é‹å‹•ç´€éŒ„
 		lastexercise();		
 		
-		//map°ò¥»³]©w
+		//mapåŸºæœ¬è¨­å®š
 		setMap();
 				
 		if(a){
 			location = locManager.getLastKnownLocation(bestProvider);
 			updateToNewLocation(location);	
-			//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+			//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 			cameraPosition=new CameraPosition.Builder()
 			.target(new LatLng(location.getLatitude(), location.getLongitude()))
 			.zoom(15)
@@ -100,13 +100,13 @@ public class MyTrack extends Activity{
 			.tilt(0)
 			.build();
 			map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));	
-			//LocationManagerªººÊÅ¥¡ALocationListener
+			//LocationManagerçš„ç›£è½ï¼ŒLocationListener
 			locManager.requestLocationUpdates(bestProvider,1000,1,new LocationListener(){
 				
 			    public void onLocationChanged(Location location){		
 				    // TODO Auto-generated method stub
 				    updateToNewLocation(location);	
-					Log.v(TAG, "½n«×:"+location.getLatitude()+"¸g«×:"+location.getLongitude());
+					Log.v(TAG, "ç·¯åº¦:"+location.getLatitude()+"ç¶“åº¦:"+location.getLongitude());
 //					Log.v(TAG,"MyTrack.onLocationChanged");
 				}
 				@Override
@@ -118,7 +118,7 @@ public class MyTrack extends Activity{
 				@Override
 				public void onProviderEnabled(String provider) {
 					// TODO Auto-generated method stub
-					//·íGPS LocationProvider¥i¥Î®É¡A§ó·s¦ì¸m
+					//ç•¶GPS LocationProviderå¯ç”¨æ™‚ï¼Œæ›´æ–°ä½ç½®
 					location=locManager.getLastKnownLocation(provider);
 //					Log.v(TAG,"MyTrack.onProviderEnabled");
 				}
@@ -131,7 +131,7 @@ public class MyTrack extends Activity{
 		}	
 	}	
 	
-	//map³]©w
+	//mapè¨­å®š
 	private void setMap(){
 		map=((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -158,9 +158,9 @@ public class MyTrack extends Activity{
 	         bestProvider = LocationManager.GPS_PROVIDER;
 			 return true;
 		 }
-	    AlertDialog alertDialog=getAlertDialog("½Ğ¶}±ÒGPS³]©w", "½Ğ¿ï¾Ü");
+	    AlertDialog alertDialog=getAlertDialog("è«‹é–‹å•ŸGPSè¨­å®š", "è«‹é¸æ“‡");
 	    alertDialog.show();
-		Toast.makeText(MyTrack.this, "½Ğ¶}±ÒGPS©w¦ì", Toast.LENGTH_SHORT).show();		 		 
+		Toast.makeText(MyTrack.this, "è«‹é–‹å•ŸGPSå®šä½", Toast.LENGTH_SHORT).show();		 		 
 		return false; 
 	 }
     
@@ -170,7 +170,7 @@ public class MyTrack extends Activity{
 			lat=location.getLatitude();
 			lng=location.getLongitude();			
 		}
-		//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+		//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 		cameraPosition=new CameraPosition.Builder()
 		.target(new LatLng(lat,lng))
 		.zoom(15)
@@ -220,7 +220,7 @@ public class MyTrack extends Activity{
 			}		
 	};
 	
-	//¤W¦¸¹B°Ê¬ö¿ıÅã¥Ü
+	//ä¸Šæ¬¡é‹å‹•ç´€éŒ„é¡¯ç¤º
 	private void lastexercise(){
 		DBHelper dbhelper= new DBHelper(MyTrack.this);
 		SQLiteDatabase db = dbhelper.getReadableDatabase();		
@@ -237,32 +237,32 @@ public class MyTrack extends Activity{
 	}
 	
 	private AlertDialog getAlertDialog(String title,String message){
-		//²£¥Í¤@­ÓBuilderª«¥ó
+		//ç”¢ç”Ÿä¸€å€‹Builderç‰©ä»¶
 	    Builder builder = new AlertDialog.Builder(MyTrack.this);
-		//³]©wDialogªº¼ĞÃD
+		//è¨­å®šDialogçš„æ¨™é¡Œ
 		builder.setTitle(title);
-		//³]©wDialogªº¤º®e
+		//è¨­å®šDialogçš„å…§å®¹
 		builder.setMessage(message);
-		//³]©wPositive«ö¶s¸ê®Æ
-		builder.setPositiveButton("¨ú®ø", new DialogInterface.OnClickListener(){
+		//è¨­å®šPositiveæŒ‰éˆ•è³‡æ–™
+		builder.setPositiveButton("å–æ¶ˆ", new DialogInterface.OnClickListener(){
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
 		    	
 		    }
 		});
-	    //³]©wNegative«ö¶s¸ê®Æ
-		builder.setNegativeButton("¶}±ÒGPS", new DialogInterface.OnClickListener() {
+	    //è¨­å®šNegativeæŒ‰éˆ•è³‡æ–™
+		builder.setNegativeButton("é–‹å•ŸGPS", new DialogInterface.OnClickListener() {
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
 		        Intent intent=new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 		        startActivity(intent);		               
 		    }
 		});
-		//§Q¥ÎBuilderª«¥ó«Ø¥ßAlertDialog
+		//åˆ©ç”¨Builderç‰©ä»¶å»ºç«‹AlertDialog
 	    return builder.create();
     }
 	
-	//gpsºÊÅ¥³B²z
+	//gpsç›£è½è™•ç†
 	GpsStatus.Listener gpsListener = new GpsStatus.Listener() {
         @Override
 		public void onGpsStatusChanged(int event) {
@@ -286,13 +286,13 @@ public class MyTrack extends Activity{
 		}
    };
 	
-	//Menu³]©w
+	//Menuè¨­å®š
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {		
-		menu.add(0, 0, 0, "­º­¶");
-		menu.add(0, 1, 1, "¬ö¿ı");
-		menu.add(0, 2, 2, "³]©w");
-		menu.add(0, 3, 3, "µn¥X");		
+		menu.add(0, 0, 0, "é¦–é ");
+		menu.add(0, 1, 1, "ç´€éŒ„");
+		menu.add(0, 2, 2, "è¨­å®š");
+		menu.add(0, 3, 3, "ç™»å‡º");		
 		return super.onCreateOptionsMenu(menu);
     }
 	

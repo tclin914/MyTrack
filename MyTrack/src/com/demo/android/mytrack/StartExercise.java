@@ -98,51 +98,51 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.startexercise);
 		
-		//¨ú±oProvider
+		//å–å¾—Provider
 		boolean a=initProvider();
 		
 		findView();
 		
-		//³]¸mºÊÅ¥¾¹
+		//è¨­ç½®ç›£è½å™¨
 		setListeners();
 		
-		//¨ú±o­µ¼Ö
+		//å–å¾—éŸ³æ¨‚
 		getMusics();
 		
-		//list¸ê®Æ
+		//listè³‡æ–™
 		LocationList=new ArrayList<Location>();
 //		VelocityList=new ArrayList();
 //		AltitudeList=new ArrayList();			
 		
-		//³]©w¹Ï¤ù
+		//è¨­å®šåœ–ç‰‡
 		setResource();
 		
-		//map°ò¥»³]©w
+		//mapåŸºæœ¬è¨­å®š
 		initMap();				
 		
 		setToast();	
 		
-		//¤U©Ô¿ï³æ
+		//ä¸‹æ‹‰é¸å–®
 		setSpinner();		
 		
-		//·Æ°Ê		
-		detector = new GestureDetector(this);//°_©l¤ÆÄ²ºN
-		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper01);//¨ú±oViewFlipper
-		                                                        //±NView¼W¥[¨ìflipper°}¦C¤¤   		
+		//æ»‘å‹•		
+		detector = new GestureDetector(this);//èµ·å§‹åŒ–è§¸æ‘¸
+		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper01);//å–å¾—ViewFlipper
+		                                                        //å°‡Viewå¢åŠ åˆ°flipperé™£åˆ—ä¸­   		
 		
 		
 		
 		
 //		AltitudeList.add(location.getAltitude());	
-//		System.out.println("¸g«×:"+location.getLatitude()+"½n«×"+location.getLongitude());
+//		System.out.println("ç¶“åº¦:"+location.getLatitude()+"ç·¯åº¦"+location.getLongitude());
 		
 		if(a){
-			//Locationªì©l¤Æ³B²z		
+			//Locationåˆå§‹åŒ–è™•ç†		
 			location = locManager.getLastKnownLocation(bestProvider);
 			updateToNewLocation(location);	
 			LocationList.add(location);	
 			min_altitude=location.getAltitude();
-			//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+			//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 			cameraPosition=new CameraPosition.Builder()
 			.target(new LatLng(location.getLatitude(), location.getLongitude()))
 			.zoom(15)
@@ -150,8 +150,8 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			.tilt(0)
 			.build();
 			map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-			//LocationManagerªººÊÅ¥  
-			//onLocationChangedªººÊÅ¥¨Æ¥ó³B²z		
+			//LocationManagerçš„ç›£è½  
+			//onLocationChangedçš„ç›£è½äº‹ä»¶è™•ç†		
 			locManager.requestLocationUpdates(bestProvider, 2000, 0,new LocationListener(){		
 			    public void onLocationChanged(Location location){		
 			        // TODO Auto-generated method stub			
@@ -167,7 +167,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			    @Override
 			    public void onProviderEnabled(String provider) {
 				    // TODO Auto-generated method stub
-				    //·íGPS LocationProvider¥i¥Î®É¡A§ó·s¦ì¸m
+				    //ç•¶GPS LocationProviderå¯ç”¨æ™‚ï¼Œæ›´æ–°ä½ç½®
 				    location=locManager.getLastKnownLocation(provider);
 				    Log.v(TAG,"onProviderEnabled");
 			    }
@@ -207,7 +207,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		map.getUiSettings().setMyLocationButtonEnabled(true);		
 	}
 	
-	//¨ú±oGPSªºProvider
+	//å–å¾—GPSçš„Provider
 	private boolean initProvider(){		 
 		 locManager=(LocationManager)getSystemService(Context.LOCATION_SERVICE);
 		 //List all providers
@@ -227,13 +227,13 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			  bestProvider = LocationManager.GPS_PROVIDER;
 			  return true;
 			 }		
-		 AlertDialog alertDialog=getAlertDialog("½Ğ¶}±ÒGPS³]©w", "½Ğ¿ï¾Ü");
+		 AlertDialog alertDialog=getAlertDialog("è«‹é–‹å•ŸGPSè¨­å®š", "è«‹é¸æ“‡");
 		 alertDialog.show();
-		 Toast.makeText(StartExercise.this, "½Ğ¶}±ÒGPS©w¦ì", Toast.LENGTH_SHORT).show();		 
+		 Toast.makeText(StartExercise.this, "è«‹é–‹å•ŸGPSå®šä½", Toast.LENGTH_SHORT).show();		 
 		 return false;		 
 	}
 	
-	//map¦ì¸m§ó·s
+	//mapä½ç½®æ›´æ–°
 	private void updateToNewLocation(Location location){
 		if(startorcontinue){
 			
@@ -245,7 +245,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 				lat=location.getLatitude();
 				lng=location.getLongitude();			
 			}
-			//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+			//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 			cameraPosition=new CameraPosition.Builder()
 			.target(new LatLng(lat,lng))
 			.zoom(15)
@@ -269,7 +269,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			    }			      
 			}
 			
-			//³Ì°ª®ü©Ş
+			//æœ€é«˜æµ·æ‹”
 			if(location.getAltitude()>max_altitude){
 				max_altitude=location.getAltitude();
 				DecimalFormat nf=new DecimalFormat("0");
@@ -277,17 +277,17 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 				tvMaxAltitude.setText(nf.format(max_altitude));
 			}
 			
-			//³Ì§C®ü©Ş
+			//æœ€ä½æµ·æ‹”
 			if(location.getAltitude()<min_altitude){
 				min_altitude=location.getAltitude();
 			}
 		
 			
-			//¸ê®Æ§ó·s					
+			//è³‡æ–™æ›´æ–°					
 			setData(distance/1000,height,location.getAltitude());	
 			
 //			AltitudeList.add(altitude);				
-			//³Ì°ª®ü©Ş
+			//æœ€é«˜æµ·æ‹”
 //			List SortAltitudeList=new ArrayList();
 //			SortAltitudeList=AltitudeList;
 //			Collections.sort(SortAltitudeList);
@@ -295,10 +295,10 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 //			nf.setMaximumFractionDigits(2);			
 //			tvMaxAltitude.setText(String.valueOf(nf.format(SortAltitudeList.get(SortAltitudeList.size()-1))));			
 
-			Log.v(TAG, "½n«×:"+location.getLatitude()+"¸g«×:"+location.getLongitude()+"min_altitude="+min_altitude);
+			Log.v(TAG, "ç·¯åº¦:"+location.getLatitude()+"ç¶“åº¦:"+location.getLongitude()+"min_altitude="+min_altitude);
 			Log.v(TAG,"onLocationChanged");				
 			
-			//§ó·s´yÃ¸­y¸ñ
+			//æ›´æ–°æç¹ªè»Œè·¡
 			LocationList.add(location);	
 			drawPolyline(LocationList);			
 			
@@ -306,7 +306,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	
 	}		
 	
-	//­y¸ñ¹ÏÃ¸»s
+	//è»Œè·¡åœ–ç¹ªè£½
 	private void drawPolyline(List<Location> location){
 		PolylineOptions polylineOpt = new PolylineOptions();
 		for(int a=0;a<location.size();a++){
@@ -317,7 +317,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		polyline.setWidth(10);
 		}
 	
-	//®É¶¡³B²z
+	//æ™‚é–“è™•ç†
 	private Runnable updateTimer = new Runnable() {
 	    public void run() {
 	        DecimalFormat nf = new DecimalFormat("00");
@@ -350,7 +350,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	    }
 	};
 	
-	//TextView¸ê®Æ§ó·s
+	//TextViewè³‡æ–™æ›´æ–°
     private void setData(double distance,double height,double altitdue){
         DecimalFormat nf=new DecimalFormat("0.00");
 		nf.setMaximumFractionDigits(2);
@@ -363,7 +363,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		tvAltitude.setText(nf2.format(altitdue));		
 	}	
     
-	//button¨Æ¥ó³B²z
+	//buttonäº‹ä»¶è™•ç†
 	private OnClickListener start_OnClick=new Button.OnClickListener()
 	{
 		public void onClick(View v){
@@ -417,7 +417,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		}			
 	};
 	
-	//­µ¼Ö¼½©ñºÊÅ¥¾¹
+	//éŸ³æ¨‚æ’­æ”¾ç›£è½å™¨
 	private OnClickListener btnPrev_OnClick=new Button.OnClickListener()
 	{
 		public void onClick(View v){
@@ -443,7 +443,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		}			
 	};	
 	
-	//·Æ°Ê®ÄªG
+	//æ»‘å‹•æ•ˆæœ
 	@Override  
     public boolean onTouchEvent(MotionEvent event) {   
         return this.detector.onTouchEvent(event);   
@@ -455,13 +455,13 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	}
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,float velocityY) {
-	    if (e1.getX() - e2.getX() > 120) {//¦pªG¬O±q¥k¦V¥ª·Æ°Ê   
-	                    //µù¥Uflipperªº¶i¥X®ÄªG 
+	    if (e1.getX() - e2.getX() > 120) {//å¦‚æœæ˜¯å¾å³å‘å·¦æ»‘å‹•   
+	                    //è¨»å†Šflipperçš„é€²å‡ºæ•ˆæœ 
 	        this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.left_in));
 	        this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.left_out));
 	        this.flipper.showNext();   
 	        return true;  
-	    } else if (e1.getX() - e2.getX() < -120) {//¦pªG¬O±q¥ª¦V¥k·Æ°Ê 
+	    } else if (e1.getX() - e2.getX() < -120) {//å¦‚æœæ˜¯å¾å·¦å‘å³æ»‘å‹• 
 	        this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.right_in)); 
 	        this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.right_out));
 	        this.flipper.showPrevious();
@@ -489,7 +489,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		return false;
 	}	
 	
-	//­µ¼Ö¼½©ñ¥\¯à
+	//éŸ³æ¨‚æ’­æ”¾åŠŸèƒ½
 	private void doStop() {
 		if (mediaPlayer != null) {
 			isPause = false;
@@ -569,8 +569,8 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			mediaPlayer.setOnCompletionListener(this);
 		}		
 		mediaPlayer.start();		
-		tvSongName.setText("¦±¥Ø: " + songList.get(index).getTitle() + 
-							"\n±M¿è: " + songList.get(index).getAlbum() + 
+		tvSongName.setText("æ›²ç›®: " + songList.get(index).getTitle() + 
+							"\nå°ˆè¼¯: " + songList.get(index).getAlbum() + 
 							"\n(" + (index + 1) + "/" + songList.size() + ")");
 	}	
 	
@@ -579,16 +579,16 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		doNext();
 	}
 	
-	//¨ú±o­µ¼Ö
+	//å–å¾—éŸ³æ¨‚
 	private void getMusics(){
 		songList = new LinkedList<Song>();		
 		ContentResolver contentResolver = getContentResolver();
 		Uri uri = android.provider.MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
 		Cursor cursor = contentResolver.query(uri, null, null, null, null);
 		if (cursor == null) {
-			Log.d("=======>", "¬d¸ß¿ù»~");
+			Log.d("=======>", "æŸ¥è©¢éŒ¯èª¤");
 		} else if (!cursor.moveToFirst()) {
-			Log.d("=======>", "¨S¦³´CÅéÀÉ");
+			Log.d("=======>", "æ²’æœ‰åª’é«”æª”");
 		} else {
 		    int titleColumn = cursor.getColumnIndex(android.provider.MediaStore.Audio.Media.TITLE);
 		    int idColumn = cursor.getColumnIndex(android.provider.MediaStore.Audio.Media._ID);
@@ -605,10 +605,10 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		        songList.add(song);
 		    } while (cursor.moveToNext());
 		}		
-		tvSongName.setText("¦@¦³ " + songList.size() + " ­ººq¦±");
+		tvSongName.setText("å…±æœ‰ " + songList.size() + " é¦–æ­Œæ›²");
 	}
 	
-	//¨ú±oºq¦W
+	//å–å¾—æ­Œå
 	private String[] getSongname(){
 		String[] songname=new String[songList.size()];
 		for(int k=0;k<songList.size();k++){
@@ -617,7 +617,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		return songname;
 	}
 	
-	//³]©wspinner
+	//è¨­å®šspinner
 	private void setSpinner(){
 		ArrayAdapter<String> adapter=new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item,getSongname());		
 		spinner.setAdapter(adapter);
@@ -626,7 +626,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 			public void onItemSelected(AdapterView<?> arg0, View arg1,
 					int position, long arg3) {
 				// TODO Auto-generated method stub
-				Toast.makeText(StartExercise.this, "±z¿ï¾Ü"+position, Toast.LENGTH_SHORT).show();
+				Toast.makeText(StartExercise.this, "æ‚¨é¸æ“‡"+position, Toast.LENGTH_SHORT).show();
 				index=position;
 				doplaySpinner();
 			}
@@ -641,8 +641,8 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	
 	
 	private void setToast(){
-		//¥ª¥k·Æ°Ê´£¿ô
-//		Toast toastright = Toast.makeText(this,"¦V¥k·Æ°Ê ¬d¬İ¸Ô²Ó¸ê®Æ", Toast.LENGTH_LONG);
+		//å·¦å³æ»‘å‹•æé†’
+//		Toast toastright = Toast.makeText(this,"å‘å³æ»‘å‹• æŸ¥çœ‹è©³ç´°è³‡æ–™", Toast.LENGTH_LONG);
 //	    toastright.setGravity(Gravity.LEFT, 0, 0);
 //		LinearLayout toastViewright = (LinearLayout) toastright.getView();
 //		ImageView imageright = new ImageView(this);
@@ -656,13 +656,13 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		
 	}
 	
-	//Menu³B²z
+	//Menuè™•ç†
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "­º­¶");
-		menu.add(0, 1, 1, "¬ö¿ı");
-		menu.add(0, 2, 2, "³]©w");
-		menu.add(0, 3, 3, "µn¥X");		
+		menu.add(0, 0, 0, "é¦–é ");
+		menu.add(0, 1, 1, "ç´€éŒ„");
+		menu.add(0, 2, 2, "è¨­å®š");
+		menu.add(0, 3, 3, "ç™»å‡º");		
 		return super.onCreateOptionsMenu(menu);
 	}
 	public boolean onOptionsItemSelected(MenuItem item){
@@ -684,32 +684,32 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	}	
 	
 	private AlertDialog getAlertDialog(String title,String message){
-		//²£¥Í¤@­ÓBuilderª«¥ó
+		//ç”¢ç”Ÿä¸€å€‹Builderç‰©ä»¶
 	    Builder builder = new AlertDialog.Builder(StartExercise.this);
-		//³]©wDialogªº¼ĞÃD
+		//è¨­å®šDialogçš„æ¨™é¡Œ
 		builder.setTitle(title);
-		//³]©wDialogªº¤º®e
+		//è¨­å®šDialogçš„å…§å®¹
 		builder.setMessage(message);
-		//³]©wPositive«ö¶s¸ê®Æ		
-		builder.setPositiveButton("¨ú®ø", new DialogInterface.OnClickListener(){
+		//è¨­å®šPositiveæŒ‰éˆ•è³‡æ–™		
+		builder.setPositiveButton("å–æ¶ˆ", new DialogInterface.OnClickListener(){
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
 		    	
 		    }
 		});
-	    //³]©wNegative«ö¶s¸ê®Æ
-		builder.setNegativeButton("¶}±ÒGPS", new DialogInterface.OnClickListener() {
+	    //è¨­å®šNegativeæŒ‰éˆ•è³‡æ–™
+		builder.setNegativeButton("é–‹å•ŸGPS", new DialogInterface.OnClickListener() {
 		    @Override
 		    public void onClick(DialogInterface dialog, int which) {
 		        Intent intent=new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS);
 		        startActivity(intent);		               
 		    }
 		});
-		//§Q¥ÎBuilderª«¥ó«Ø¥ßAlertDialog
+		//åˆ©ç”¨Builderç‰©ä»¶å»ºç«‹AlertDialog
 	    return builder.create();
     }
 	
-	//GpsºÊÅ¥³B²z
+	//Gpsç›£è½è™•ç†
 	GpsStatus.Listener gpsListener = new GpsStatus.Listener() {
 	    @Override
 	    public void onGpsStatusChanged(int event) {
@@ -717,12 +717,12 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	            case GpsStatus.GPS_EVENT_STARTED:
 	            Log.d(TAG, "GPS_EVENT_STARTED");
 	            Toast.makeText(StartExercise.this, "GPS_EVENT_STARTED", Toast.LENGTH_SHORT).show();
-//	            Toast.makeText(StartExercise.this, "¨ú±oGPS«H¸¹", Toast.LENGTH_SHORT).show();
+//	            Toast.makeText(StartExercise.this, "å–å¾—GPSä¿¡è™Ÿ", Toast.LENGTH_SHORT).show();
 	            break;
 	            case GpsStatus.GPS_EVENT_STOPPED:
 	            Log.d(TAG, "GPS_EVENT_STOPPED");
 	            Toast.makeText(StartExercise.this, "GPS_EVENT_STOPPED", Toast.LENGTH_SHORT).show();
-//	            Toast.makeText(StartExercise.this, "GPS«H¸¹²×¤î", Toast.LENGTH_SHORT).show();
+//	            Toast.makeText(StartExercise.this, "GPSä¿¡è™Ÿçµ‚æ­¢", Toast.LENGTH_SHORT).show();
 	            break;
 	            case GpsStatus.GPS_EVENT_FIRST_FIX:
 	            Log.d(TAG, "GPS_EVENT_FIRST_FIX");
@@ -735,7 +735,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 	    }
 	};
 	
-	//³]©w¹Ï¤ù
+	//è¨­å®šåœ–ç‰‡
 	private void setResource(){
 		Drawable StartImage = getResources().getDrawable( R.drawable.play_icon);	
 		start.setCompoundDrawablesWithIntrinsicBounds(StartImage, null , null, null);
@@ -788,7 +788,7 @@ public class StartExercise extends Activity implements OnGestureListener,OnCompl
 		tvMaxVelocity=(TextView)findViewById(R.id.idMaxVelocity3);
 	}
 	
-	//ºÊÅ¥¨Æ¥ó
+	//ç›£è½äº‹ä»¶
 	private void setListeners(){
 		start.setOnClickListener(start_OnClick);
 		cancel.setOnClickListener(cancel_OnClick);

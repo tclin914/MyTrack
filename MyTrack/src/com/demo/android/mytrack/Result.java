@@ -80,9 +80,9 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 			     , alt=null
 			     , vel=null;
 	private long intCnt;
-	//·Æ°Ê
+	//æ»‘å‹•
 	private ViewFlipper flipper;//ViewFlipper   
-	private GestureDetector detector;//Ä²ºNºÊÅ¥
+	private GestureDetector detector;//è§¸æ‘¸ç›£è½
 	private View view=null;
 	private final int ONE = 0;	
 	private final int TWO = 1;
@@ -96,10 +96,10 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		setContentView(R.layout.result);
 		findView();	
 		
-		//¦a¹Ï°ò¥»³]©w
+		//åœ°åœ–åŸºæœ¬è¨­å®š
 		setMap();		
 				
-		//Åã¥Ü®É¶¡¬P´Á
+		//é¡¯ç¤ºæ™‚é–“æ˜ŸæœŸ
 		String dts;
 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 		Date dt=new Date();
@@ -109,36 +109,36 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		String week=null;
 		switch(day){
 		case 1:
-			week="¬P´Á¤é";
+			week="æ˜ŸæœŸæ—¥";
 			break;
 		case 2:
-			week="¬P´Á¤@";
+			week="æ˜ŸæœŸä¸€";
 			break;
 		case 3:
-			week="¬P´Á¤G";
+			week="æ˜ŸæœŸäºŒ";
 			break;
 		case 4:
-			week="¬P´Á¤T";
+			week="æ˜ŸæœŸä¸‰";
 			break;
 		case 5:
-			week="¬P´Á¥|";
+			week="æ˜ŸæœŸå››";
 			break;
 		case 6:
-			week="¬P´Á¤­";
+			week="æ˜ŸæœŸäº”";
 			break;
 		case 7:
-			week="¬P´Á¤»";
+			week="æ˜ŸæœŸå…­";
 			break;
 		default:
 		}
 		tvDate.setText(dts+"\n"+week);
 		
-		//·Æ°Ê		
-		detector = new GestureDetector(this);//°_©l¤ÆÄ²ºN
-		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper03);//¨ú±oViewFlipper
-				                                                //±NView¼W¥[¨ìflipper°}¦C¤¤  
+		//æ»‘å‹•		
+		detector = new GestureDetector(this);//èµ·å§‹åŒ–è§¸æ‘¸
+		flipper = (ViewFlipper)findViewById(R.id.ViewFlipper03);//å–å¾—ViewFlipper
+				                                                //å°‡Viewå¢åŠ åˆ°flipperé™£åˆ—ä¸­  
 		
-		//¨ú¥XBundleªº­È		
+		//å–å‡ºBundleçš„å€¼		
 		Bundle bundle=this.getIntent().getExtras();
 		intCnt=bundle.getLong("time");
 		double distance=bundle.getDouble("distance");		
@@ -154,49 +154,49 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //		VelocityList=(List)arraylist.get(1);
 //		AltitudeList=(List<Double>)arraylist.get(2);
 		
-		//Åã¥Ü¹B°Ê®É¶¡		
+		//é¡¯ç¤ºé‹å‹•æ™‚é–“		
 		DecimalFormat nf1 = new DecimalFormat("00");		
 	    Long hour=intCnt/3600;            
         Long minius = (intCnt % 3600)/60;
         Long seconds = intCnt % 60;              
         tvTime.setText(nf1.format(hour)+":"+nf1.format(minius)+":"+nf1.format(seconds));
         
-        //Åã¥Ü¶ZÂ÷
+        //é¡¯ç¤ºè·é›¢
         DecimalFormat nf2=new DecimalFormat("0.00");
 	    nf2.setMaximumFractionDigits(2);	
         tvDistance.setText(nf2.format(distance/1000));
         
-        //Åã¥Ü°ª«×
+        //é¡¯ç¤ºé«˜åº¦
         DecimalFormat nf3=new DecimalFormat("0");
 		tvHeight.setText(nf3.format(height));
 		
-		//Åã¥Ü³t«×
+		//é¡¯ç¤ºé€Ÿåº¦
 		DecimalFormat nf4=new DecimalFormat();
 		nf4.setMaximumFractionDigits(2);
 		tvAverageVelocity.setText(nf4.format(Double.valueOf((distance/1000)/(Double.valueOf(intCnt)/3600))));
 		
-		//Åã¥Ü³Ì¤j³t«×		
+		//é¡¯ç¤ºæœ€å¤§é€Ÿåº¦		
 		tvMaxVelocity.setText(nf4.format(max_velocity));
 		
-		//Åã¥Ü³Ì°ª®ü©Ş
+		//é¡¯ç¤ºæœ€é«˜æµ·æ‹”
 		DecimalFormat nf5=new DecimalFormat();
 		nf5.setMaximumFractionDigits(3);
 		tvMaxAltitude.setText(nf5.format(max_altitude));
 		
-		//Åã¥Ü³Ì§C®ü©Ş
+		//é¡¯ç¤ºæœ€ä½æµ·æ‹”
 		tvMinAltitude.setText(nf5.format(min_altitude));
 				
-	    //±Nlist¤¤©Ò¦³Àx¦sªº¸g½n¦L¥X
+	    //å°‡listä¸­æ‰€æœ‰å„²å­˜çš„ç¶“ç·¯å°å‡º
 //		String temp=null,c;
 //		for(int i=0;i<LocationList.size();i++){
-//			c="½n«×:"+LocationList.get(i).getLatitude()+" "+"¸g«×:"+LocationList.get(i).getLongitude()+"\n";	
+//			c="ç·¯åº¦:"+LocationList.get(i).getLatitude()+" "+"ç¶“åº¦:"+LocationList.get(i).getLongitude()+"\n";	
 //			temp=temp+c;
 //		}
-//		Log.e("LocList©ÒÀx¦sªºLocation",temp);     
+//		Log.e("LocListæ‰€å„²å­˜çš„Location",temp);     
 		
-		//±Nlocationªº¸g½n«×©î¶}¦¨¨âµ§¸ê®ÆÀx¦s¨ìLocList		
+		//å°‡locationçš„ç¶“ç·¯åº¦æ‹†é–‹æˆå…©ç­†è³‡æ–™å„²å­˜åˆ°LocList		
 		List<String> LocList = new ArrayList<String>();
-		Log.e("­ì¥»LocationList¤j¤p", String.valueOf(LocationList.size()));			
+		Log.e("åŸæœ¬LocationListå¤§å°", String.valueOf(LocationList.size()));			
 		for(int i=0;i<LocationList.size();i++){
 			double temp1,temp2;
 			temp1=LocationList.get(i).getLatitude();
@@ -205,7 +205,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 			LocList.add(String.valueOf(temp2));		
 		}        
 			
-		Log.e("©î¶}«áLocList¤j¤p", String.valueOf(LocList.size()));	
+		Log.e("æ‹†é–‹å¾ŒLocListå¤§å°", String.valueOf(LocList.size()));	
 		
 		//Serializable
 		loc=new MyList();
@@ -229,7 +229,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //			r = "Altitude=" + AltitudeList.get(i)+"\n";	
 //			t=t+r;
 //		}		
-//		Log.e("LocList©ÒÀx¦sªºLocation",t);  
+//		Log.e("LocListæ‰€å„²å­˜çš„Location",t);  
 		
 		drawPolyline(LocationList);
 		
@@ -240,7 +240,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		
 	}
 	
-	//¦a¹Ï³]©w
+	//åœ°åœ–è¨­å®š
 	private void setMap(){
 		map=((MapFragment)getFragmentManager().findFragmentById(R.id.map)).getMap();
 		map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
@@ -249,7 +249,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		map.getUiSettings().setMyLocationButtonEnabled(true);			
 	}
 	
-	//­y¸ñ¹ÏÃ¸»s
+	//è»Œè·¡åœ–ç¹ªè£½
 	private void drawPolyline(List<Location> locationlist){
 	    PolylineOptions polylineOpt = new PolylineOptions();
 		for(int a=0;a<locationlist.size();a++){
@@ -266,7 +266,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 			lat=location.getLatitude();
 			lng=location.getLongitude();			
 		}
-		//²¾°Êµøµ¡¨ìGPS©Ò§ì¨ú¨ìªº¸g½n«×¦ì¸m
+		//ç§»å‹•è¦–çª—åˆ°GPSæ‰€æŠ“å–åˆ°çš„ç¶“ç·¯åº¦ä½ç½®
 		cameraPosition=new CameraPosition.Builder()
 		.target(new LatLng(lat,lng))
 		.zoom(15)
@@ -337,7 +337,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //		byte[] blaBytes3 = test3.serializeObject(alt); 
 //		values.put(ALTITUDE, blaBytes3); 		
 		
-		//deserialize´ú¸Õ
+		//deserializeæ¸¬è©¦
 //		MyList test = (MyList)test1.deserializeObject(blaBytes1);		
 //		Log.e("test",test.Stringlist.get(0)+","+test.Stringlist.get(1));
 		
@@ -345,13 +345,13 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		db.close();
 	}
 	
-    //Menu³B²z
+    //Menuè™•ç†
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "­º­¶");
-		menu.add(0, 1, 1, "¬ö¿ı");
-		menu.add(0, 2, 2, "³]©w");
-		menu.add(0, 3, 3, "µn¥X");		
+		menu.add(0, 0, 0, "é¦–é ");
+		menu.add(0, 1, 1, "ç´€éŒ„");
+		menu.add(0, 2, 2, "è¨­å®š");
+		menu.add(0, 3, 3, "ç™»å‡º");		
 		return super.onCreateOptionsMenu(menu);
 	}
 	public boolean onOptionsItemSelected(MenuItem item){
@@ -374,7 +374,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 		return super.onOptionsItemSelected(item); 
 	}
 
-	//·Æ°Ê®ÄªG
+	//æ»‘å‹•æ•ˆæœ
 	@Override
 	public void onCompletion(MediaPlayer mp) {
 		// TODO Auto-generated method stub
@@ -393,16 +393,16 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 	} 
 	@Override
 	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-		if (e1.getX() - e2.getX() > 120) {//¦pªG¬O±q¥k¦V¥ª·Æ°Ê   
-            //µù¥Uflipperªº¶i¥X®ÄªG 
+		if (e1.getX() - e2.getX() > 120) {//å¦‚æœæ˜¯å¾å³å‘å·¦æ»‘å‹•   
+            //è¨»å†Šflipperçš„é€²å‡ºæ•ˆæœ 
             this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.left_in));
             this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.left_out));
             this.flipper.showNext(); 
-            Log.e("flipper¼Æ¥Ø", ""+flipper.getChildCount());
+            Log.e("flipperæ•¸ç›®", ""+flipper.getChildCount());
             Log.e("flipper ID", ""+  flipper.indexOfChild(flipper.getCurrentView()));            
            ;
             return true;  
-        } else if (e1.getX() - e2.getX() < -120) {//¦pªG¬O±q¥ª¦V¥k·Æ°Ê 
+        } else if (e1.getX() - e2.getX() < -120) {//å¦‚æœæ˜¯å¾å·¦å‘å³æ»‘å‹• 
             this.flipper.setInAnimation(AnimationUtils.loadAnimation(this, R.anim.right_in)); 
             this.flipper.setOutAnimation(AnimationUtils.loadAnimation(this, R.anim.right_out));
             this.flipper.showPrevious();
@@ -438,10 +438,10 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 	}
 	
 //	private void showAltitude(){
-//        String[] titles = new String[] { "®ü©Ş" }; // ©w¸q§é½uªº¦WºÙ
-//	    List<double[]> x = new ArrayList<double[]>(); // ÂIªºx§¤¼Ğ
-//	    List<double[]> y = new ArrayList<double[]>(); // ÂIªºy§¤¼Ğ
-//	    // ¼Æ­ÈX,Y§¤¼Ğ­È¿é¤J
+//        String[] titles = new String[] { "æµ·æ‹”" }; // å®šç¾©æŠ˜ç·šçš„åç¨±
+//	    List<double[]> x = new ArrayList<double[]>(); // é»çš„xåæ¨™
+//	    List<double[]> y = new ArrayList<double[]>(); // é»çš„yåæ¨™
+//	    // æ•¸å€¼X,Yåæ¨™å€¼è¼¸å…¥
 //	        
 //	    double[] AltitudetoArray  = ArrayUtils.toPrimitive(AltitudeList.toArray(new Double[AltitudeList.size()]));
 //	        
@@ -457,13 +457,13 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //	    y.add(AltitudetoArray); 
 //
 //	        
-//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // Àx¦s®y¼Ğ­È
+//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // å„²å­˜åº§æ¨™å€¼
 //
-//	    int[] colors = new int[] { Color.BLUE};// §é½uªºÃC¦â
-//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // §é½uÂIªº§Îª¬
+//	    int[] colors = new int[] { Color.BLUE};// æŠ˜ç·šçš„é¡è‰²
+//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // æŠ˜ç·šé»çš„å½¢ç‹€
 //	    XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles, true);
 //
-//	    setChartSettings(renderer, "®ü©Ş§é½u¹Ï", "®É¶¡(s)", "®ü©Ş(m)", 0, 60, 0, 100, Color.BLACK);// ©w¸q§é½u¹Ï
+//	    setChartSettings(renderer, "æµ·æ‹”æŠ˜ç·šåœ–", "æ™‚é–“(s)", "æµ·æ‹”(m)", 0, 60, 0, 100, Color.BLACK);// å®šç¾©æŠ˜ç·šåœ–
 //	    Altitudechart = ChartFactory.getLineChartView(this, dataset, renderer);
 //	    int height=getWindowManager().getDefaultDisplay().getHeight();
 //	    LayoutParams parms = new LayoutParams(LayoutParams.MATCH_PARENT, height-300);
@@ -472,10 +472,10 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //    }
 //	
 //	private void showVelocity(){
-//        String[] titles = new String[] { "³t«×" }; // ©w¸q§é½uªº¦WºÙ
-//	    List<double[]> x = new ArrayList<double[]>(); // ÂIªºx§¤¼Ğ
-//	    List<double[]> y = new ArrayList<double[]>(); // ÂIªºy§¤¼Ğ
-//	    // ¼Æ­ÈX,Y§¤¼Ğ­È¿é¤J
+//        String[] titles = new String[] { "é€Ÿåº¦" }; // å®šç¾©æŠ˜ç·šçš„åç¨±
+//	    List<double[]> x = new ArrayList<double[]>(); // é»çš„xåæ¨™
+//	    List<double[]> y = new ArrayList<double[]>(); // é»çš„yåæ¨™
+//	    // æ•¸å€¼X,Yåæ¨™å€¼è¼¸å…¥
 //	        
 //	    double[] VelocitytoArray  = ArrayUtils.toPrimitive(VelocityList.toArray(new Double[VelocityList.size()]));
 //	        
@@ -491,13 +491,13 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //	    y.add(VelocitytoArray); 
 //
 //	        
-//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // Àx¦s®y¼Ğ­È
+//	    XYMultipleSeriesDataset dataset = buildDatset(titles, x, y); // å„²å­˜åº§æ¨™å€¼
 //
-//	    int[] colors = new int[] { Color.GREEN};// §é½uªºÃC¦â
-//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // §é½uÂIªº§Îª¬
+//	    int[] colors = new int[] { Color.GREEN};// æŠ˜ç·šçš„é¡è‰²
+//	    PointStyle[] styles = new PointStyle[] { PointStyle.CIRCLE }; // æŠ˜ç·šé»çš„å½¢ç‹€
 //	    XYMultipleSeriesRenderer renderer = buildRenderer(colors, styles, true);
 //
-//	    setChartSettings(renderer, "³t«×§é½u¹Ï", "®É¶¡(s)", "³t«×(km/h)", 0, 60, 0, 100, Color.BLACK);// ©w¸q§é½u¹Ï
+//	    setChartSettings(renderer, "é€Ÿåº¦æŠ˜ç·šåœ–", "æ™‚é–“(s)", "é€Ÿåº¦(km/h)", 0, 60, 0, 100, Color.BLACK);// å®šç¾©æŠ˜ç·šåœ–
 //	    Velocitychart = ChartFactory.getLineChartView(this, dataset, renderer);
 //	    int height=getWindowManager().getDefaultDisplay().getHeight();
 //	    LayoutParams parms = new LayoutParams(LayoutParams.MATCH_PARENT, height-300);
@@ -505,23 +505,23 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //
 //    }
 //	
-//	// ©w¸q§é½u¹Ï¦WºÙ
+//	// å®šç¾©æŠ˜ç·šåœ–åç¨±
 //    protected void setChartSettings(XYMultipleSeriesRenderer renderer, String title, String xTitle,
 //            String yTitle, double xMin, double xMax, double yMin, double yMax, int axesColor) {
-//        renderer.setChartTitle(title); // §é½u¹Ï¦WºÙ
-//        renderer.setChartTitleTextSize(24); // §é½u¹Ï¦WºÙ¦r§Î¤j¤p
-//        renderer.setXTitle(xTitle); // X¶b¦WºÙ
-//        renderer.setYTitle(yTitle); // Y¶b¦WºÙ
-//        renderer.setXAxisMin(xMin); // X¶bÅã¥Ü³Ì¤p­È
-//        renderer.setXAxisMax(xMax); // X¶bÅã¥Ü³Ì¤j­È
-//        renderer.setXLabelsColor(Color.BLACK); // X¶b½uÃC¦â
-//        renderer.setYAxisMin(yMin); // Y¶bÅã¥Ü³Ì¤p­È
-//        renderer.setYAxisMax(yMax); // Y¶bÅã¥Ü³Ì¤j­È
-//        renderer.setAxesColor(axesColor); // ³]©w§¤¼Ğ¶bÃC¦â
-//        renderer.setYLabelsColor(0, Color.BLACK); // Y¶b½uÃC¦â
-//        renderer.setLabelsColor(Color.BLACK); // ³]©w¼ĞÅÒÃC¦â
-//        renderer.setMarginsColor(Color.WHITE); // ³]©w­I´ºÃC¦â
-//        renderer.setShowGrid(true); // ³]©w®æ½u
+//        renderer.setChartTitle(title); // æŠ˜ç·šåœ–åç¨±
+//        renderer.setChartTitleTextSize(24); // æŠ˜ç·šåœ–åç¨±å­—å½¢å¤§å°
+//        renderer.setXTitle(xTitle); // Xè»¸åç¨±
+//        renderer.setYTitle(yTitle); // Yè»¸åç¨±
+//        renderer.setXAxisMin(xMin); // Xè»¸é¡¯ç¤ºæœ€å°å€¼
+//        renderer.setXAxisMax(xMax); // Xè»¸é¡¯ç¤ºæœ€å¤§å€¼
+//        renderer.setXLabelsColor(Color.BLACK); // Xè»¸ç·šé¡è‰²
+//        renderer.setYAxisMin(yMin); // Yè»¸é¡¯ç¤ºæœ€å°å€¼
+//        renderer.setYAxisMax(yMax); // Yè»¸é¡¯ç¤ºæœ€å¤§å€¼
+//        renderer.setAxesColor(axesColor); // è¨­å®šåæ¨™è»¸é¡è‰²
+//        renderer.setYLabelsColor(0, Color.BLACK); // Yè»¸ç·šé¡è‰²
+//        renderer.setLabelsColor(Color.BLACK); // è¨­å®šæ¨™ç±¤é¡è‰²
+//        renderer.setMarginsColor(Color.WHITE); // è¨­å®šèƒŒæ™¯é¡è‰²
+//        renderer.setShowGrid(true); // è¨­å®šæ ¼ç·š
 //        renderer.setInScroll(false);
 //        renderer.setClickEnabled(false);
 //        renderer.setExternalZoomEnabled(false);
@@ -531,7 +531,7 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //                
 //    }
 //
-//    // ©w¸q§é½u¹Ïªº®æ¦¡
+//    // å®šç¾©æŠ˜ç·šåœ–çš„æ ¼å¼
 //    private XYMultipleSeriesRenderer buildRenderer(int[] colors, PointStyle[] styles, boolean fill) {
 //        XYMultipleSeriesRenderer renderer = new XYMultipleSeriesRenderer();
 //        int length = colors.length;
@@ -542,27 +542,27 @@ public class Result extends Activity implements OnGestureListener,OnCompletionLi
 //            r.setFillPoints(fill);
 //            r.setLineWidth(6);
 //            r.setPointStrokeWidth(30);            
-//            renderer.addSeriesRenderer(r); //±N®y¼ĞÅÜ¦¨½u¥[¤J¹Ï¤¤Åã¥Ü
+//            renderer.addSeriesRenderer(r); //å°‡åº§æ¨™è®Šæˆç·šåŠ å…¥åœ–ä¸­é¡¯ç¤º
 //        }
 //        return renderer;
 //    }
 //    
 // 
 //
-//    // ¸ê®Æ³B²z
+//    // è³‡æ–™è™•ç†
 //    private XYMultipleSeriesDataset buildDatset(String[] titles, List<double[]> xValues,
 //            List<double[]> yValues) {
 //        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
 //
-//        int length = titles.length; // §é½u¼Æ¶q
+//        int length = titles.length; // æŠ˜ç·šæ•¸é‡
 //        for (int i = 0; i < length; i++) {
-//            // XYseries¹ï¶H,¥Î©ó´£¨ÑÃ¸»sªºÂI¶°¦Xªº¸ê®Æ
-//            XYSeries series = new XYSeries(titles[i]); // ¨Ì¾Ú¨C±ø½uªº¦WºÙ·s¼W
-//            double[] xV = xValues.get(i); // Àò¨ú²Äi±ø½uªº¸ê®Æ
+//            // XYserieså°è±¡,ç”¨æ–¼æä¾›ç¹ªè£½çš„é»é›†åˆçš„è³‡æ–™
+//            XYSeries series = new XYSeries(titles[i]); // ä¾æ“šæ¯æ¢ç·šçš„åç¨±æ–°å¢
+//            double[] xV = xValues.get(i); // ç²å–ç¬¬iæ¢ç·šçš„è³‡æ–™
 //            double[] yV = yValues.get(i);
-//            int seriesLength = xV.length; // ¦³´X­ÓÂI
+//            int seriesLength = xV.length; // æœ‰å¹¾å€‹é»
 //
-//            for (int k = 0; k < seriesLength; k++) // ¨C±ø½u¸Ì¦³´X­ÓÂI
+//            for (int k = 0; k < seriesLength; k++) // æ¯æ¢ç·šè£¡æœ‰å¹¾å€‹é»
 //            {
 //                series.add(xV[k], yV[k]);
 //            }

@@ -252,10 +252,10 @@ public class Record extends Activity{
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		menu.add(0, 0, 0, "­º­¶");
-		menu.add(0, 1, 1, "¬ö¿ı");
-		menu.add(0, 2, 2, "³]©w");
-		menu.add(0, 3, 3, "µn¥X");		
+		menu.add(0, 0, 0, "é¦–é ");
+		menu.add(0, 1, 1, "ç´€éŒ„");
+		menu.add(0, 2, 2, "è¨­å®š");
+		menu.add(0, 3, 3, "ç™»å‡º");		
 		return super.onCreateOptionsMenu(menu);
 	}
 	public boolean onOptionsItemSelected(MenuItem item){
